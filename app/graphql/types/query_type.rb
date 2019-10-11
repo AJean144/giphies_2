@@ -9,5 +9,17 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :me, Types::UserType, null: false,
+      description: "This is the current user"
+    def me
+      User.first
+    end
+
+    field :giphies, String, null: false,
+      description: "A list of giphies"
+    def giphies
+      Giphy.all
+    end
   end
 end
